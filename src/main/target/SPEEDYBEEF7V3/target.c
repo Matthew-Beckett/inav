@@ -33,11 +33,26 @@ BUSDEV_REGISTER_SPI_TAG(busdev_mpu6000,  DEVHW_MPU6000, MPU6000_SPI_BUS,  MPU600
 
 timerHardware_t timerHardware[] = {
 
-    DEF_TIM(TIM2, CH1, PA15,    TIM_USE_OUTPUT_AUTO, 0, 0),  // S1
-    DEF_TIM(TIM2, CH2, PB3,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S2
-    DEF_TIM(TIM3, CH1, PB4,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S3
-    DEF_TIM(TIM4, CH1, PB6,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S4
-    DEF_TIM(TIM4, CH2, PB7,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S5
+    // DEF_TIM(TIM2, CH1, PA15,    TIM_USE_OUTPUT_AUTO, 0, 0),  // S1
+    // DEF_TIM(TIM2, CH2, PB3,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S2
+    // DEF_TIM(TIM3, CH1, PB4,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S3
+    // DEF_TIM(TIM4, CH1, PB6,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S4
+    // DEF_TIM(TIM4, CH2, PB7,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S5
+    // DEF_TIM(TIM3, CH2, PB5,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S6 Clash with S2, DSHOT does not work
+    // DEF_TIM(TIM3, CH3, PB0,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S7
+    // DEF_TIM(TIM3, CH4, PB1,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S8
+
+    // Spin motor outputs 180 degrees for Mario 8 Fold Power Kit forward facing ESC
+
+    DEF_TIM(TIM2, CH1, PB6,    TIM_USE_OUTPUT_AUTO, 0, 0),  // S4
+    DEF_TIM(TIM2, CH2, PB4,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S3
+    DEF_TIM(TIM3, CH1, PB3,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S2
+    DEF_TIM(TIM4, CH1, PA15,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S1
+
+    // Unchanged from default, not used in Mario 8 Fold Power Kit.
+    // SpeedyBee did not remap these outputs in default Betaflight configuration
+
+    DEF_TIM(TIM4, CH2, PB7,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S4
     DEF_TIM(TIM3, CH2, PB5,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S6 Clash with S2, DSHOT does not work
     DEF_TIM(TIM3, CH3, PB0,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S7
     DEF_TIM(TIM3, CH4, PB1,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S8
